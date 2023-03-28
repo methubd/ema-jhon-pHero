@@ -18,6 +18,7 @@ const Shop = () => {
     useEffect(() => {
         const storedCart = getShoppingCart();
         const savedCart = [];
+        console.log(savedCart);
         // step 1 -get id
         for (const id in storedCart){
             // step 2 - get product from products state by using id
@@ -38,6 +39,8 @@ const Shop = () => {
 
     const handleAddToCart = (product) => {
         const newCart = [...cart, product]
+        //if the product doesn't exist in the cart, then set quantity = 1
+        //if exist update the quantity by 1
         setCart(newCart);
         addToDb(product.id)
     }
